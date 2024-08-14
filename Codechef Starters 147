@@ -1,0 +1,74 @@
+***************************** Independence Day 101    ****************************************************************************************
+
+for _ in range(int(input())):
+
+    o,w,g=map(int,input().split()) 
+    
+    a=o+w+g
+    
+    b=max(o,g,w)   
+    
+    if 2*b<=a+1:
+        
+        print("Yes")
+        
+    else:
+        print("No")  
+
+
+**************************** Truth Teller And Liars 101  ****************************************************************************************
+
+
+for _ in range(int(input())):
+    
+    n,m=map(int,input().split())
+
+    a=False
+    
+    for b in range( m+1 , n+m+1 ):
+        
+        if b>2*m:
+            
+            print(b)
+            a=True 
+            
+            break
+   
+    if not a:
+        print("-1")
+        
+**************************** Non-Primes 101  ****************************************************************************************
+
+
+def sieve(n):
+    z = [True] * (n+1)
+    p = 2
+  
+    while p * p <= n:
+        if z[p]:
+            for i in range(p * p, n + 1, p):
+                z[i] = False
+        p += 1
+    
+z = sieve(100000)
+for _ in range(int(input())):
+    n = int(input())
+    a = list(map(int, input().split()))
+    b = {}
+    r = []
+    c = False
+    for i in range(n):
+        if a[i] not in b:
+            b[a[i]] = i + 1
+            
+        for j in b:
+            if not z[a[i] + j] and b[j] != i + 1:
+                r.append(f"{b[j]} {i + 1}")
+                c = True
+                break
+        if c:
+            break
+    if not c:
+        r.append("-1")
+    print(" ".join(r))
+ 
